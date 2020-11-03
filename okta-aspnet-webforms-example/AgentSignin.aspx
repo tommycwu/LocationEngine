@@ -10,52 +10,30 @@
     <link rel="stylesheet" type="text/css" href="background3.css" />
 </head>
 <body>
-<form id="form2" runat="server" method="POST">
-<div><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Img/alterra.png" OnClick="ImageButton1_Click" /></div>
-<div id="okta-login-container" style="float: left; margin-left: 100px" ></div>
-    <input type="hidden" name="sessionToken" id="hiddenSessionTokenField" />
-        <div>
-        </div>
-    <script type="text/javascript">
-        var oktaDomain = '<%= System.Configuration.ConfigurationManager.AppSettings["okta:oktaDomain"].ToString() %>';
-        var cId = '<%= System.Configuration.ConfigurationManager.AppSettings["alterra:ClientId"].ToString() %>';
-        var agentIssuer = '<%= System.Configuration.ConfigurationManager.AppSettings["alterra:Issuer"].ToString() %>';
-        var redirUri = '<%= System.Configuration.ConfigurationManager.AppSettings["okta:RedirectUri"].ToString() %>';
-
-        var signIn = new OktaSignIn({
-            baseUrl: oktaDomain            
-        });
-
-        //var signIn = new OktaSignIn({
-        //    baseUrl: oktaDomain,
-        //    clientId: cId,
-        //    redirectUri: redirUri,
-        //});
-
-        signIn.renderEl({ el: '#okta-login-container' }, (res) => {
-            var sessionTokenField = $("#hiddenSessionTokenField");
-            sessionTokenField.val(res.session.token);
-            var form = sessionTokenField.parent();
-            form.submit();
-        }, (err) => {
-            console.error(err);
-        });
-
-                    //el: '#okta-login-container',
-            //authParams: {
-            //    issuer: agentIssuer
-            //}
-
-
-        //signIn.showSignInToGetTokens({
-        //    clientId: cId,
-        //    redirectUri: redirUri,
-        //    getAccessToken: true,
-        //    getIdToken: true,
-        //    scope: 'openid profile'
-        //});
-
-    </script>
+    <form id="form2" runat="server">
+        <div id="okta-login-container" style="float: left; margin-left: 30px; margin-top: 200px" ></div>
+        <input type="hidden" name="sessionToken" id="hiddenSessionTokenField" />
+        <script type="text/javascript">
+            var signIn = new OktaSignIn({
+                baseUrl: '<%= System.Configuration.ConfigurationManager.AppSettings["okta:oktaDomain"].ToString() %>',
+                //customButtons: [{
+                //    title: 'Sign in with Google',
+                //    className: 'social-auth-button social-auth-google-button link-button',
+                //    click: function () {
+                //        window.location.href = 'https://twu.oktapreview.com/oauth2/v1/authorize?idp=0oau0jrldpmnd6z2s0h7&client_id=0oatxinjpsnnXRTia0h7&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fauthorize%2Fcallback&state=state&nonce=nonce';
+                //    }
+                //}]
+            });
+            signIn.renderEl({ el: '#okta-login-container' }, (res) => {
+                var sessionTokenField = $("#hiddenSessionTokenField");
+                sessionTokenField.val(res.session.token);
+                var form = sessionTokenField.parent();
+                form.submit();
+            }, (err) => {
+                console.error(err);
+            });
+        </script>
     </form>
 </body>
 </html>
+

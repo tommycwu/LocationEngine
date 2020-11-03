@@ -43,8 +43,10 @@ th {
     <form id="form1" runat="server">
         <br />
         <div>
-            <a href="AgentSignin.aspx">Agent Home</a>&nbsp;|&nbsp;<a href="UpdateUser.aspx">Update User</a>&nbsp;|&nbsp;<a href="CreateUser.aspx">Create User</a>&nbsp;|&nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton1_Click">Logout</asp:LinkButton>
+            <a href="AgentSignin.aspx">Agent Home</a>&nbsp;|&nbsp;<asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton1_Click">Logout</asp:LinkButton>
         </div>
+        <br />
+        <asp:Image ID="Image1" runat="server" />
         <br />
         <br />
         <div>ID Token</div>

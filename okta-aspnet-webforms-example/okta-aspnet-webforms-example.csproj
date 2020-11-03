@@ -309,8 +309,15 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="gridview.css" />
     <Content Include="Icon.png" />
+    <Content Include="Img\1.png" />
     <Content Include="Img\19-20 season pass.png" />
     <Content Include="authorize\after_login.png" />
+    <Content Include="Img\2.png" />
+    <Content Include="Img\3.png" />
+    <Content Include="Img\4.png" />
+    <Content Include="Img\5.png" />
+    <Content Include="Img\7.png" />
+    <Content Include="Img\8.png" />
     <Content Include="Img\agent.png" />
     <Content Include="Img\agent_background.png" />
     <Content Include="Img\alterra.png" />
@@ -327,6 +334,7 @@
     <Content Include="Img\ikon.png" />
     <Content Include="Img\linkedin.png" />
     <Content Include="Img\login.png" />
+    <Content Include="Img\logoff.png" />
     <Content Include="Img\logout.png" />
     <Content Include="Img\menu.png" />
     <Content Include="Img\msft.png" />

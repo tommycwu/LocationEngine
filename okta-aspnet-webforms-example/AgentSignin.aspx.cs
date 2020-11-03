@@ -25,7 +25,7 @@ namespace okta_aspnet_webforms_example
                 var sessionToken = Request.Form["sessionToken"]?.ToString();
                 var properties = new AuthenticationProperties();
                 properties.Dictionary.Add("sessionToken", sessionToken);
-                properties.RedirectUri = "http://twu.oktapreview.com";
+                properties.RedirectUri = "/agenttokens.aspx";
 
                 HttpContext.Current.GetOwinContext().Authentication.Challenge(
                         properties,

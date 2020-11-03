@@ -62,6 +62,20 @@ namespace okta_aspnet_webforms_example
                 var ajsonToken = ahandler.ReadToken(atokenStr);
                 var atokenS = ahandler.ReadToken(atokenStr) as JwtSecurityToken;
 
+                var claimsList = atokenS.Claims.ToList();
+                for (int i = 0; i < claimsList.Count(); i++)
+                {
+                    var temp = claimsList[i];
+                    if (temp.Value.Contains("admin"))
+                    {
+                        Image1.ImageUrl = @"~\img\7.png";
+                    }
+                    else
+                    {
+                        Image1.ImageUrl = @"~\img\8.png";
+                    }
+                }
+
                 GridViewAccess.DataSource = atokenS.Claims.Select(x => new { Name = x.Type, Value = x.Value });
                 GridViewAccess.DataBind();
             }
@@ -69,6 +83,7 @@ namespace okta_aspnet_webforms_example
             {
                 Response.Redirect("AgentSignin.aspx?user=invalid");
             }
+
         }
 
         protected void GridViewID_OnRowDataBound(object sender, GridViewRowEventArgs e)

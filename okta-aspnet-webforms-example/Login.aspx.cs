@@ -195,48 +195,48 @@ namespace okta_aspnet_webforms_example
                     Application["atoken"] = getArray[1];
                     Response.Redirect("/authorize/callback.aspx");
                 }
-                else //create the user
+                //else //create the user
+                //{
+                //    string fName = string.Empty;
+                //    string lName = string.Empty;
+                //    string ikonId = string.Empty;
+
+                //    //if (LegacyCreds(TextBox1.Text, TextBox2.Text, ref fName, ref lName, ref ikonId)) //check against db for valid credentials
+                //    //{
+                //    var client = new OktaClient(new OktaClientConfiguration
+                //    {
+                //        OktaDomain = ConfigurationManager.AppSettings["okta:OktaDomain"].ToString(),
+                //        Token = ConfigurationManager.AppSettings["okta:APIkey"].ToString(),
+                //    });
+
+                //    var results = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+                //    {
+                //        Profile = new UserProfile
+                //        {
+                //            FirstName = fName,
+                //            LastName = lName,
+                //            Email = TextBox1.Text,
+                //            Login = TextBox1.Text,
+                //        },
+                //        Password = TextBox2.Text,
+                //        Activate = true,
+                //    });
+
+                //    var userUpdate = client.Users.GetUserAsync(TextBox1.Text);
+                //    userUpdate.Result.Profile["ikonMemberId"] = ikonId;
+                //    var updResults = await userUpdate.Result.UpdateAsync();
+
+                //    getArray = await GetTokens(TextBox1.Text, TextBox2.Text);
+                //    string userStr = TextBox1.Text;
+                //    Application["utoken"] = userStr;
+                //    Application["itoken"] = getArray[0];
+                //    Application["atoken"] = getArray[1];
+                //    Response.Redirect("/authorize/callback.aspx");
+                //}
+                //}
+                else
                 {
-                    string fName = string.Empty;
-                    string lName = string.Empty;
-                    string ikonId = string.Empty;
-
-                    if (LegacyCreds(TextBox1.Text, TextBox2.Text, ref fName, ref lName, ref ikonId)) //check against db for valid credentials
-                    {
-                        var client = new OktaClient(new OktaClientConfiguration
-                        {
-                            OktaDomain = ConfigurationManager.AppSettings["okta:OktaDomain"].ToString(),
-                            Token = ConfigurationManager.AppSettings["okta:APIkey"].ToString(),
-                        });
-
-                        var results = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
-                        {
-                            Profile = new UserProfile
-                            {
-                                FirstName = fName,
-                                LastName = lName,
-                                Email = TextBox1.Text,
-                                Login = TextBox1.Text,
-                            },
-                            Password = TextBox2.Text,
-                            Activate = true,
-                        });
-
-                        var userUpdate = client.Users.GetUserAsync(TextBox1.Text);
-                        userUpdate.Result.Profile["ikonMemberId"] = ikonId;
-                        var updResults = await userUpdate.Result.UpdateAsync();
-
-                        getArray = await GetTokens(TextBox1.Text, TextBox2.Text);
-                        string userStr = TextBox1.Text;
-                        Application["utoken"] = userStr;
-                        Application["itoken"] = getArray[0];
-                        Application["atoken"] = getArray[1];
-                        Response.Redirect("/authorize/callback.aspx");
-                    }
-                    else
-                    {
-                        Label4.Text = "User/Password is invalid";
-                    }
+                    Label4.Text = "User/Password is invalid";
                 }
             }
             catch (Exception ex)
@@ -249,6 +249,13 @@ namespace okta_aspnet_webforms_example
         protected void ImageButton1_Click(object sender, System.Web.UI.ImageClickEventArgs e)
         {
             Response.Redirect("https://twu.oktapreview.com/oauth2/v1/authorize?idp=0oau0jrldpmnd6z2s0h7&client_id=0oatxinjpsnnXRTia0h7&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fauthorize%2Fcallback&state=state&nonce=nonce");
+        }
+
+        protected void ImageButton4_Click(object sender, System.Web.UI.ImageClickEventArgs e)
+        {
+            Application["utoken"] = null;
+            Application["itoken"] = null;
+            Application["atoken"] = null;
         }
     }
 }

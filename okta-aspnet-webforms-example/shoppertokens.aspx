@@ -4,7 +4,6 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="stylesheet" type="text/css" href="background4.css" />
     <link rel="stylesheet" type="text/css" href="gridview.css" />
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
     <title></title>
@@ -12,35 +11,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <br />
             &nbsp;<asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="True" ForeColor="White" OnClick="LinkButton1_Click1">Log Out</asp:LinkButton>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
+            <asp:Image ID="Image1" runat="server" Height="620px" ImageAlign="Top" ImageUrl="~/Img/4.png" Width="1900px" />
             <br />
             <div>
                 ID Token
@@ -51,6 +23,11 @@
             </div>
 
         </div>
+        <p>
+            Access Token</p>
+                <asp:GridView runat="server" ID="GridViewAccess" OnRowDataBound="GridViewID_OnRowDataBound" CssClass="mGrid">
+                </asp:GridView>
+        <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Logout</asp:LinkButton>
     </form>
     </body>
 </html>

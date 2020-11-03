@@ -6,18 +6,19 @@
 <head runat="server">
     <title></title>
     <link rel="stylesheet" type="text/css" href="background1.css" />
+     <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Img/menu.png" OnClick="ImageButton4_Click"/>
-            <asp:ImageButton ID="ImageButton5" runat="server" ImageUrl="~/Img/ikon.png" OnClick="ImageButton5_Click"/>
-            <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Img/search.png" ImageAlign="Right" OnClick="ImageButton2_Click" /> 
-            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Img/login.png" ImageAlign="Right" OnClick="ImageButton1_Click" /> 
-            <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Img/usd.png" ImageAlign="Right"/>
-        </div>
-        <div>
-            <asp:ImageButton ID="ImageButton12" runat="server" Width="317px" Height="490px" ImageUrl="~/Img/agent.png" OnClick="ImageButton12_Click" Visible="False" />
+        <div class="text-right">
+            <br />
+            <br />
+            <asp:LinkButton ID="LinkButton1" runat="server" Font-Bold="True" ForeColor="White" OnClick="LinkButton1_Click">1) Sign-In Widget</asp:LinkButton>
+&nbsp; |&nbsp;
+            <asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" ForeColor="White" OnClick="LinkButton3_Click">2) API / SDK</asp:LinkButton>
+&nbsp; |&nbsp;
+            <asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" ForeColor="White" OnClick="LinkButton2_Click">3) Okta hosted redirect</asp:LinkButton>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </form>
 </body>

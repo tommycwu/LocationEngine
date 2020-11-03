@@ -9,112 +9,112 @@
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
     <style type="text/css">
         .auto-style1 {
-            height: 32px;
-            width: 403px;
-            bottom: 195px;
+            height: 35px;
+            width: 149px;
+            bottom: 580px;
+            position: fixed;
+            left: 65px;
+            top: 125px;
         }
         .auto-style4 {
             width: 280px;
-        }
-        .auto-style5 {
-            height: 80px;
-            width: 334px;
-            margin-left: 48px;
         }
         .auto-style6 {
             width: 3px;
         }
         .auto-style7 {
             height: 25px;
+            width: 1205px;
+        }
+        .auto-style8 {
+            width: 1205px;
+        }
+        .auto-style9 {
+            width: 2625px;
+        }
+        .auto-style10 {
+            height: 25px;
+            width: 2625px;
+        }
+        .auto-style11 {
+            width: 50%;
+        }
+        .auto-style12 {
+            width: 1363px;
+        }
+        .auto-style13 {
+            height: 25px;
+            width: 1363px;
+        }
+        .auto-style14 {
+            margin-right: 0;
         }
         </style>
 </head>
 <body>
     <form id="form1" runat="server">
-            <div class="text-right">
-                <asp:ImageButton ID="ImageButton4" runat="server" ImageUrl="~/Img/usd.png" />
-                <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/Img/passes.png" />
-            <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Img/search.png" />
-            </div>
+        <div class="text-right">
+            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
         <div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <div style="width: 50%; align-self:center">
-            <table class="auto-style1" style="position: fixed; left: 175px; top: 125px;">
+            <div style="align-self:center" class="auto-style11">
+                <table class="auto-style1">
                 <tr>
                     <td class="auto-style6" style="background-color: #FFFFFF">
                         &nbsp;</td>
                     <td class="auto-style4" style="background-color: #FFFFFF; clip: rect(auto, auto, auto, auto);">
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="auto-style6" style="background-color: #FFFFFF">
-                        &nbsp;</td>
-                    <td class="auto-style4" style="background-color: #FFFFFF; clip: rect(auto, auto, auto, auto);">
-                        <table class="auto-style5">
+                        <table>
                             <tr>
-                                <td>
-                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/Img/details.png" />
+                                <td class="auto-style9">&nbsp;</td>
+                                <td class="auto-style8">&nbsp;</td>
+                                <td class="auto-style8">&nbsp;</td>
+                                <td class="auto-style12">&nbsp;</td>
+                                <td class="auto-style12">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="auto-style10">
+                                    <asp:Label ID="Label2" runat="server" ForeColor="Black" Text="EMAIL:" Font-Names="Arial Black"></asp:Label>
+                                &nbsp;<asp:TextBox ID="TextBox1" runat="server" style="margin-left: 0px" Width="300px" Height="30px" BackColor="#F3F3F3" BorderStyle="None"></asp:TextBox>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
                                 <td class="auto-style7">
-                                    <asp:Label ID="Label2" runat="server" ForeColor="Black" Text="EMAIL" Font-Names="Arial Black"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="TextBox1" runat="server" style="margin-left: 0px" Width="300px" Height="30px" BackColor="#F3F3F3" BorderStyle="None"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="auto-style7">
-                                    <asp:Label ID="Label3" runat="server" ForeColor="Black" Text="PASSWORD" Font-Names="Arial Black"></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 0px" TextMode="Password" Width="300px" Height="30px" BackColor="#F3F3F3" BorderStyle="None"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
                                     &nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>
+                                <td class="auto-style7">
+                                    <asp:Label ID="Label3" runat="server" ForeColor="Black" Text="PASSWORD:" Font-Names="Arial Black"></asp:Label>
+                                    <asp:TextBox ID="TextBox2" runat="server" style="margin-left: 0px" TextMode="Password" Width="300px" Height="30px" BackColor="#F3F3F3" BorderStyle="None" CssClass="auto-style14"></asp:TextBox>
+                                </td>
+                                <td class="auto-style13">
+                                    &nbsp;</td>
+                                <td class="auto-style13">
+                                    <br />
                                     <asp:Button ID="Button1" runat="server" OnClick="Button1_ClickAsync" Text="LOG IN" Width="305px" BackColor="#0066CC" Font-Bold="True" Font-Names="Arial Black" Font-Size="Smaller" ForeColor="White" Height="40px" BorderStyle="None" />
-                                    &nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <asp:Label ID="Label4" runat="server" Font-Bold="True" ForeColor="Red" Font-Names="Calibri"></asp:Label></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    &nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Img/signin.png" OnClick="ImageButton1_Click" />
                                 </td>
                             </tr>
                             <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style9">
+                                    &nbsp;</td>
+                                <td class="auto-style8">
+                                    &nbsp;</td>
+                                <td class="auto-style8">
+                                    &nbsp;</td>
+                                <td class="auto-style12">
+                                    &nbsp;</td>
+                                <td class="auto-style12">
+                                    &nbsp;</td>
                             </tr>
                             <tr>
-                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/oktaAddPerson.html">New to Ikon Pass? Create an Account</asp:HyperLink>
+                                <td class="auto-style10">
+                                    &nbsp;
+                                    <asp:Label ID="Label4" runat="server" Font-Bold="True" ForeColor="Red" Font-Names="Calibri"></asp:Label>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
+                                <td class="auto-style7">
+                                    &nbsp;</td>
+                                <td class="auto-style7">
+                                    &nbsp;</td>
+                                <td class="auto-style13">
+                                    &nbsp;</td>
+                                <td class="auto-style13">
+                                    &nbsp;</td>
                             </tr>
                             </table>
                     </td>

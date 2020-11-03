@@ -20,26 +20,34 @@ namespace okta_aspnet_webforms_example.authorize
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string fullUrl = hdnResultValue.Value;
+            if (fullUrl.IndexOf('#') > 1)
+            {
+                string hashUrl = fullUrl.Substring(fullUrl.IndexOf('#') + 1);
+                string minusState = hashUrl.Substring(0, hashUrl.IndexOf('&'));
+                string idToken = minusState.Substring(minusState.IndexOf('=') + 1);
+                Application["stoken"] = idToken;
+            }
+            Response.Redirect("../usertokens.aspx");
         }
 
         private void Page_LoadComplete(object sender, EventArgs e)
         {
             if (Application["utoken"] != null)
             {
-                var userStr = Application["utoken"].ToString();
-                Label1.Text = userStr.Substring(0, userStr.IndexOf('@'));
+                Label1.Text = Application["utoken"].ToString();
 
-                client = new OktaClient(new OktaClientConfiguration
-                {
-                    OktaDomain = ConfigurationManager.AppSettings["okta:OktaDomain"].ToString(),
-                    Token = ConfigurationManager.AppSettings["okta:APIkey"].ToString(),
-                });
+                //client = new OktaClient(new OktaClientConfiguration
+                //{
+                //    OktaDomain = ConfigurationManager.AppSettings["okta:OktaDomain"].ToString(),
+                //    Token = ConfigurationManager.AppSettings["okta:APIkey"].ToString(),
+                //});
 
-                var userUpdate = client.Users.GetUserAsync(userStr);
-                if (userUpdate.Result.Profile["ikonPass"] != null)
-                {
-                    Label6.Text = "Pass Registered: " + userUpdate.Result.Profile["ikonPass"].ToString();
-                }
+                //var userUpdate = client.Users.GetUserAsync(userStr);
+                //if (userUpdate.Result.Profile["ikonPass"] != null)
+                //{
+                //    Label6.Text = "Pass Registered: " + userUpdate.Result.Profile["ikonPass"].ToString();
+                //}
             }
         }
 

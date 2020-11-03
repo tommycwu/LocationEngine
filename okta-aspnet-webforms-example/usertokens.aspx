@@ -59,6 +59,7 @@ th {
             <asp:Label ID="Label2" runat="server" Text="Access Token" Visible="False"></asp:Label>
         </div>
         <asp:GridView runat="server" ID="GridViewAccess" OnRowDataBound="GridViewAccess_RowDataBound" CssClass="mGrid"></asp:GridView>
+        <asp:LinkButton ID="LinkButton3" runat="server">Continue</asp:LinkButton>
     </form>
     </body>
 </html>

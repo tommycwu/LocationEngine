@@ -16,43 +16,43 @@ namespace okta_aspnet_webforms_example
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
-            ImageButton12.Visible = false;
-            Response.Redirect("Login.aspx");
         }
 
         protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
         {
-            if (ImageButton12.Visible)
-            {
-                ImageButton12.Visible = false;
-            }
-            else
-            {
-                ImageButton12.Visible = true;
-            }
         }
 
         protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
         {
-            ImageButton12.Visible = false;
-            if (!Request.IsAuthenticated)
-            {
-                HttpContext.Current.GetOwinContext().Authentication.Challenge(
-                  new AuthenticationProperties { RedirectUri = "/shoppertokens.aspx" },
-                  OpenIdConnectAuthenticationDefaults.AuthenticationType);
-            }
         }
 
         protected void ImageButton5_Click(object sender, ImageClickEventArgs e)
         {
-            ImageButton12.Visible = false;
-            Response.Redirect("IkonPass.aspx");
         }
 
         protected void ImageButton12_Click(object sender, ImageClickEventArgs e)
         {
-            ImageButton12.Visible = false;
+        }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
             Response.Redirect("AgentSignin.aspx");
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            HttpContext.Current.GetOwinContext().Authentication.Challenge(
+                new AuthenticationProperties { RedirectUri = "/shoppertokens.aspx" },
+                OpenIdConnectAuthenticationDefaults.AuthenticationType);
         }
     }
 }

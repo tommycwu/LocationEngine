@@ -1,11 +1,12 @@
-﻿using Microsoft.Owin.Security.Cookies;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
+using Microsoft.Owin.Security.Cookies;
 
 #pragma warning disable SA1300 // Element should begin with upper-case letter
 namespace okta_aspnet_webforms_example
@@ -32,8 +33,12 @@ public partial class WebForm6 : System.Web.UI.Page
                     {
                         itokenStr = claimItem.Value;
                     }
+                    else if (claimItem.Type == "access_token")
+                    {
+                        atokenStr = claimItem.Value;
+                    }
 
-                    if (itokenStr.Length > 0)
+                    if ((itokenStr.Length > 0) && (atokenStr.Length > 0))
                     {
                         break;
                     }
@@ -51,8 +56,33 @@ public partial class WebForm6 : System.Web.UI.Page
             }
             else
             {
-                Response.Redirect("login.aspx?user=invalid");
+                Response.Redirect("welcome.aspx?user=invalid");
             }
+
+            if (atokenStr != string.Empty)
+            {
+                var ahandler = new JwtSecurityTokenHandler();
+                var ajsonToken = ahandler.ReadToken(atokenStr);
+                var atokenS = ahandler.ReadToken(atokenStr) as JwtSecurityToken;
+
+                var claimsList = atokenS.Claims.ToList();
+                for (int i = 0; i < claimsList.Count(); i++)
+                {
+                    var temp = claimsList[i];
+                    if (temp.Value.Contains("admin"))
+                    {
+                        Image1.ImageUrl = @"~\img\4.png";
+                    }
+                    else
+                    {
+                        Image1.ImageUrl = @"~\img\6.png";
+                    }
+                }
+
+                GridViewAccess.DataSource = atokenS.Claims.Select(x => new { Name = x.Type, Value = x.Value });
+                GridViewAccess.DataBind();
+            }
+
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
@@ -69,6 +99,22 @@ public partial class WebForm6 : System.Web.UI.Page
         }
 
         protected void LinkButton1_Click1(object sender, EventArgs e)
+        {
+            Application["passId"] = null;
+            Application["atoken"] = null;
+            Application["itoken"] = null;
+            Application["utoken"] = null;
+
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                HttpContext.Current.GetOwinContext().Authentication.SignOut(
+                    CookieAuthenticationDefaults.AuthenticationType);
+            }
+
+            Response.Redirect("Welcome.aspx");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
         {
             Application["passId"] = null;
             Application["atoken"] = null;

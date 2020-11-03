@@ -87,6 +87,20 @@ namespace okta_aspnet_webforms_example
                     GridViewAccess.DataSource = atokenS.Claims.Select(x => new { Name = x.Type, Value = x.Value });
                     GridViewAccess.DataBind();
                     Label2.Visible = true;
+
+                    var claimsList = atokenS.Claims.ToList();
+                    for (int i = 0; i < claimsList.Count(); i++)
+                    {
+                        var temp = claimsList[i];
+                        if (temp.Value.Contains("admin"))
+                        {
+                            LinkButton3.PostBackUrl = @"https://locationengine.com/";
+                        }
+                        else
+                        {
+                            LinkButton3.PostBackUrl = @"https://locationengine.com/about/";
+                        }
+                    } 
                 }
             }
             catch
